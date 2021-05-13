@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Customer_Support::support" title="Support Customer" module="Customer_Support" sortOrder="10" resource="Customer_Support::Support"/>
+        <add id="Customer_Support::support_list" title="List Support" module="Customer_Support" sortOrder="10" action="support_customer/index/index" resource="Customer_Support::support_list" parent="Customer_Support::support"/>
+        <add id="Customer_Support::support_new" title="New Support" module="Customer_Support" sortOrder="20" action="support_customer/index/new" resource="Customer_Support::support_new" parent="Customer_Support::support"/>
+    </menu>
+</config>

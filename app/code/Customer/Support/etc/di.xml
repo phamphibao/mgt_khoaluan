@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Customer\Support\Ui\DataProvider\Support\ListingDataProvider">
+        <plugin name="customer_support_attributes" type="Customer\Support\Plugin\AddAttributesToUiDataProvider"/>
+    </type>
+    <type name="Customer\Support\Model\ResourceModel\Support\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">customer_support_customer</argument>
+            <argument name="eventPrefix" xsi:type="string">customer_support_customer_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">customer_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Customer\Support\Model\ResourceModel\Support</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="customer_support_support_listing_data_source" xsi:type="string">Customer\Support\Model\ResourceModel\Support\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+</config>

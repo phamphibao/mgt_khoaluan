@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Enviably_Streamer extension
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category  Enviably
+ * @package   Enviably_Streamer
+ * @copyright Copyright (c) 2020
+ * @license   http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Enviably\Streamer\Api\StreamerRepositoryInterface" type="Enviably\Streamer\Model\StreamerRepository"/>
+    <preference for="Enviably\Streamer\Api\Data\StreamerInterface" type="Enviably\Streamer\Model\Streamer"/>
+    <preference for="Enviably\Streamer\Api\Data\StreamerSearchResultInterface" type="Magento\Framework\Api\SearchResults"/>
+    <type name="Enviably\Streamer\Model\ResourceModel\Streamer\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">enviably_streamer_streamer</argument>
+            <argument name="eventPrefix" xsi:type="string">enviably_streamer_streamer_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">streamer_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Enviably\Streamer\Model\ResourceModel\Streamer</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="enviably_streamer_streamer_listing_data_source" xsi:type="string">Enviably\Streamer\Model\ResourceModel\Streamer\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="EnviablyStreamerStreamerImageUploader" type="Enviably\Streamer\Model\Uploader">
+        <arguments>
+            <argument name="baseTmpPath" xsi:type="const">Enviably\Streamer\Model\Uploader::STREAMER_IMAGE_TMP_PATH</argument>
+            <argument name="basePath" xsi:type="const">Enviably\Streamer\Model\Uploader::STREAMER_IMAGE_PATH</argument>
+            <argument name="allowedExtensions" xsi:type="array">
+                <item name="jpg" xsi:type="string">jpg</item>
+                <item name="jpeg" xsi:type="string">jpeg</item>
+                <item name="gif" xsi:type="string">gif</item>
+                <item name="png" xsi:type="string">png</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <type name="Enviably\Streamer\Controller\Adminhtml\Streamer\Image\Upload">
+        <arguments>
+            <argument name="uploader" xsi:type="object">EnviablyStreamerStreamerImageUploader</argument>
+        </arguments>
+    </type>
+    <type name="Enviably\Streamer\Model\UploaderPool">
+        <arguments>
+            <argument name="uploaders" xsi:type="array">
+                <item name="image" xsi:type="object">EnviablyStreamerStreamerImageUploader</item>
+            </argument>
+        </arguments>
+    </type>
+</config>

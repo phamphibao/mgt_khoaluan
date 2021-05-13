@@ -1,0 +1,25 @@
+
+<form method="post" action="<?php echo $this->getUrl()?>support/Support/Save">
+    <div class="mb-3">
+        <label for="name_customer" class="form-label">Name</label>
+        <input type="text" class="form-control" name="name_customer" id="name_customer" placeholder="Name" required>
+    </div>
+    <div class="mb-3">
+        <label for="phone_customer" class="form-label">Phone number</label>
+        <input type="text" class="form-control" name="phone_customer" id="phone_customer" placeholder="Phone Number" required>
+    </div>
+    <div class="mb-3">
+        <label for="email_customer" class="form-label">Email</label>
+        <input type="email" class="form-control" name="email_customer" id="email_customer" placeholder="name@example.com" required>
+    </div>
+    <div class="mb-3">
+        <label for="address_customer" class="form-label">Address</label>
+        <input type="text" class="form-control" name="address_customer" id="address_customer" placeholder="Address" required>
+    </div>
+    <div class="mb-3">
+        <label for="description" class="form-label">What do you need help with?</label>
+        <textarea class="form-control"  name="description"  id="description" rows="3"></textarea>
+    </div>
+
+    <input type="submit" name="submit" value="Sent">
+</form>

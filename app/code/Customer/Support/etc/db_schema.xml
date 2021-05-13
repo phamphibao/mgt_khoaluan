@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Magento, Inc. All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+        
+    <table name="customer_support_customer" resource="default" engine="innodb" comment="Support customer">
+        <column xsi:type="int" name="support_id" padding="10" unsigned="true" nullable="false" identity="true" comment="id customer"/>
+        <column xsi:type="varchar" name="name"  length="255" nullable="false" comment="Name customer"/>
+        <column xsi:type="varchar" name="phone" length="50" nullable="false" comment="Phone customer"/>
+        <column xsi:type="varchar" name="email"  length="255"  nullable="false" comment="Email customer"/>
+        <column xsi:type="varchar" name="address" nullable="false" length="255"  comment="address"/>
+        <column xsi:type="text" name="description" nullable="false" comment="description"/>
+        <column xsi:type="smallint" name="status" padding="10" nullable="false" default="1" comment="status"/>
+    
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="support_id"/>
+        </constraint>
+    </table>
+
+</schema>

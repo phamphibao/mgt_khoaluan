@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Enviably_Streamer extension
+ * NOTICE OF LICENSE
+ * 
+ * This source file is subject to the MIT License
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/mit-license.php
+ * 
+ * @category  Enviably
+ * @package   Enviably_Streamer
+ * @copyright Copyright (c) 2020
+ * @license   http://opensource.org/licenses/mit-license.php MIT License
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Enviably_Streamer::streamer" title="Streamer" module="Enviably_Streamer" sortOrder="5" resource="Enviably_Streamer::streamer"/>
+        <add id="Enviably_Streamer::streamer_streamer" title="Streamers" module="Enviably_Streamer" sortOrder="10" action="enviably_streamer/streamer" resource="Enviably_Streamer::streamer_streamer" parent="Enviably_Streamer::streamer"/>
+    </menu>
+</config>
